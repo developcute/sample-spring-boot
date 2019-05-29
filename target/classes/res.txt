@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/31683794/map-json-object-with-dynamic-key-to-java-object
+https://stackoverflow.com/questions/39159770/json-string-to-java-object-with-dynamic-key-name
