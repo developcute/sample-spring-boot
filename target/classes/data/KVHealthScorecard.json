@@ -1,0 +1,34 @@
+{
+  "Orion Health Scorecard": {
+    "Total": {
+      "Total": "31",
+      "Success": "21",
+      "Failure": "10",
+      "Availability": "67.74"
+    },
+    "Pay It - Plan It (Pluto)": {
+      "Total": "8",
+      "Success": "6",
+      "Failure": "2",
+      "Availability": "75.00"
+    },
+    "Non Card Lending (Klover)": {
+      "Total": "5",
+      "Success": "5",
+      "Failure": "0",
+      "Availability": "100.00"
+    },
+    "Customer Web Self Service (MYCA)": {
+      "Total": "7",
+      "Success": "5",
+      "Failure": "2",
+      "Availability": "71.43"
+    },
+    "CCP Servicing (GSP)": {
+      "Total": "11",
+      "Success": "5",
+      "Failure": "6",
+      "Availability": "45.45"
+    }
+  }
+}
