@@ -1,0 +1,122 @@
+API 1:
+Get all the country information
+
+
+API 2:
+
+Get all the states 
+http://localhost:8080/findstatedetails
+SELECT META(t).id AS _ID, META(t).cas AS _CAS, cd.name AS countryName, sd.name, sd.id
+FROM test AS t
+UNNEST t.countryDetails AS cd
+UNNEST cd.stateInfo AS sd
+WHERE t.type = "countries";
+
+
+
+select * from test where type = 'countries';
+
+select raw countryDetails from test
+
+SELECT ARRAY {v.name,v.code} FOR v IN t.countryDetails END AS contryDetails FROM test AS t  WHERE t.type = "countries"; 
+
+
+@Query(" SELECT ARRAY {v.name,v.code} FOR v IN t.countryDetails END AS contryDetails FROM test AS t  WHERE t.type = 'countries'"
+
+
+countryDetails
+[{"code":"+1","name":"US"},{"code":"+33","name":"France"}]
+
+*********************
+
+
+SELECT FIRST s.stateInfo FOR IN t.countryDetails WHEN s.name = "US" END AS stateDetails
+FROM test AS t 
+WHERE t.type = "countries" 
+      AND ANY v IN t.countryDetails SATISFIES v.name = 'US' END;
+OR
+
+SELECT cd.stateInfo AS stateDetails
+FROM test AS t
+UNNEST t.countryDetails AS cd
+WHERE t.type = "countries" AND cd.name = 'US';
+
+
+[
+  {
+    "stateDetails": [
+      {
+        "id": "1212",
+        "name": "Florida"
+      },
+      {
+        "id": "1214",
+        "name": "NewYork"
+      }
+    ]
+  }
+]
+
+*********************
+
+
+SELECT ARRAY {v.name,v.code} FOR v IN t.countryDetails END AS contryDetails
+FROM test AS t 
+WHERE t.type = "countries";
+
+
+[
+  {
+    "contryDetails": [
+      {
+        "code": "+1",
+        "name": "US"
+      },
+      {
+        "code": "+33",
+        "name": "France"
+      }
+    ]
+  }
+]
+
+***************************
+
+SELECT cd.name AS countryName, sd.name, sd.id
+FROM test AS t
+UNNEST t.countryDetails AS cd
+UNNEST cd.stateInfo AS sd
+WHERE t.type = "countries" order by cd.name, sd.name;
+
+
+[
+  {
+    "countryName": "France",
+    "id": "5214",
+    "name": "Brittany"
+  },
+  {
+    "countryName": "France",
+    "id": "5212",
+    "name": "Grand Est"
+  },
+  {
+    "countryName": "US",
+    "id": "1212",
+    "name": "Florida"
+  },
+  {
+    "countryName": "US",
+    "id": "1214",
+    "name": "NewYork"
+  }
+]
+
+SELECT cd.name AS countryName, sd.name, sd.id
+FROM test AS t
+UNNEST t.countryDetails AS cd
+UNNEST cd.stateInfo AS sd
+WHERE t.type = "countries" order by cd.name, sd.name;
+
+
+https://login.microsoftonline.com/common/oauth2/logoutredirect?lc=1033
